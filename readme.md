@@ -2,8 +2,12 @@
 
 Proyek ini adalah implementasi stemmer Bahasa Indonesia berbasis daftar kata dasar. Stemmer digunakan untuk mengubah kata berimbuhan menjadi bentuk dasarnya.
 
-Perbedaan dengan PySastrawi Kode 100x lebih pendek dan lebih lambat 0.01mil detik. Tidak akan terjadi missmatch jika masih dalam lingkup antar kata.
-<br>
+Perbedaan dengan [PySastrawi](https://github.com/har07/PySastrawi):
+- Source Code 100x lebih pendek.
+- Algoritma yang digunakan berbeda.
+- Memiliki selisih 0.001 detik.
+- Kustomisasi kamus yang lebih uwaw.
+
 ### Initial
 ```python
 >>> from stemmid import Stemmer
