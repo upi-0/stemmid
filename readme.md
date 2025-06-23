@@ -8,6 +8,11 @@ Perbedaan dengan [PySastrawi](https://github.com/har07/PySastrawi):
 - Lebih cepat hingga 10%.
 - Kustomisasi kamus yang lebih uwaw.
 
+## Install
+```bash
+pip install git+https://github.com/Malykz/stemmid
+```
+## How To user
 ### Initial
 ```python
 >>> from stemmid import Stemmer
