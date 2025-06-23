@@ -83,7 +83,7 @@ class Stemmer(object) :
                 yield kata
         
     def _jika(self, kata) -> tuple[list, list]:
-        jyahh = []
+        jyahh = set()
         hasil = []
         super = []
 
@@ -103,7 +103,7 @@ class Stemmer(object) :
                 hasil.append(deuh)
                 break
             else :
-                jyahh.append(deuh)
+                jyahh.add(deuh)
         return hasil, jyahh        
 
     @cache

@@ -105,10 +105,17 @@ class TestStringMethods(unittest.TestCase):
 
     def test_time(self):
         kalimat = self.text*1
+
+        asd = time()
+        self.sastrawi(kalimat)
+        t_s = time() - asd
+
         asd = time()
         self.sastrawi2(kalimat)
         p_s = time() - asd
-        print(f"time = {p_s:.5f}")
+        
+        print(f"sastrawi = {t_s:.5f}")
+        print(f"mymodule = {p_s:.5f}")
 
 if __name__ == '__main__':
     unittest.main()
