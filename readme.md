@@ -12,7 +12,7 @@ Perbedaan dengan [PySastrawi](https://github.com/har07/PySastrawi):
 ```bash
 pip install git+https://github.com/Malykz/stemmid
 ```
-## How To user
+## Usage
 ### Initial
 ```python
 >>> from stemmid import Stemmer
