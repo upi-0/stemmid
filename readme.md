@@ -5,7 +5,7 @@ Proyek ini adalah implementasi stemmer Bahasa Indonesia berbasis daftar kata das
 Perbedaan dengan [PySastrawi](https://github.com/har07/PySastrawi):
 - Source Code 100x lebih pendek.
 - Algoritma yang digunakan berbeda.
-- Memiliki selisih 0.001 detik.
+- Lebih cepat hingga 10%.
 - Kustomisasi kamus yang lebih uwaw.
 
 ### Initial
@@ -33,3 +33,12 @@ Perbedaan dengan [PySastrawi](https://github.com/har07/PySastrawi):
 >>> Stemmer().loads("Kehilangan Permainan") 
     "hilang mainan"
 ```
+
+## Test
+Test dengan 1825 kata :
+- sastrawi = 0.03424
+- stemmid  = 0.02081
+
+Test 1.825.000 kata (Cache) :
+- sastrawi = 1.20500
+- stemmid  = 0.97979

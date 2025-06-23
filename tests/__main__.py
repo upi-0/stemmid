@@ -1,7 +1,9 @@
-import stemmid
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory as SF
 from time import time
+
+import stemmid
 import unittest
+import requests
 
 class TestStringMethods(unittest.TestCase):
     def setUp(self):
@@ -12,9 +14,12 @@ class TestStringMethods(unittest.TestCase):
 
         self.compare = lambda x : self.assertEqual(stem2.load(x), self.sastrawi(x))
         self.honorable = lambda x, y : self.assertEqual(stem2.loads(x), y)
-        with open("tests/data/undangUndang.txt", "r", encoding="utf-8") as file :
-            self.text = file.read()
-    
+        self.kalimat_panjang = (
+            requests
+            .get("https://gist.githubusercontent.com/Malykz/bd266d1266e70a4cf42d20f58a379f3c/raw/a5c1b8c3b454037ef18658bf973dcc66305fd809/dummy-id.txt")
+            .text
+            )
+
     def test_prefix(self):
         self.compare("beradab")
         self.compare("berburu")
@@ -104,18 +109,20 @@ class TestStringMethods(unittest.TestCase):
 
 
     def test_time(self):
-        kalimat = self.text*1
+        kalimat2 = self.kalimat_panjang
 
         asd = time()
-        self.sastrawi(kalimat)
-        t_s = time() - asd
+        self.sastrawi(kalimat2)
+        t_s2 = time() - asd
 
         asd = time()
-        self.sastrawi2(kalimat)
-        p_s = time() - asd
-        
-        print(f"sastrawi = {t_s:.5f}")
-        print(f"mymodule = {p_s:.5f}")
+        self.sastrawi2(kalimat2)
+        p_s2 = time() - asd
+
+        print("")
+        print("1825 kata :")
+        print(f"sastrawi = {t_s2:.5f}")
+        print(f"mymodule = {p_s2:.5f}")
 
 if __name__ == '__main__':
     unittest.main()

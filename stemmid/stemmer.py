@@ -82,6 +82,7 @@ class Stemmer(object) :
             else :
                 yield kata
         
+    @cache        
     def _jika(self, kata) -> tuple[list, list]:
         jyahh = set()
         hasil = []
