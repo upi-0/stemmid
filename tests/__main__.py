@@ -35,6 +35,8 @@ class TestStringMethods(unittest.TestCase):
         self.compare("menjilat")
         self.compare("meludah")
         self.compare("perdalam")
+        self.compare("pengusung")
+        self.compare("pengguna")
 
     def test_sufix(self):
         self.compare("bangunkan")

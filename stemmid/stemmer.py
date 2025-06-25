@@ -92,7 +92,7 @@ class Stemmer(object) :
         Paramater ini sudah di optimalkan sedemikian rupa agar tidak terjadi konflik antar Suffix/Prefix
         """
         for ka in self._match1(
-            kata, "me di ng ny mem per pen men se ber ke ter meng memper", 
+            kata, "me di ng ny mem per pen peng men se ber ke ter meng memper", 
             [kata, "kan annya an i in hkan kah nya inya mu ku lah kannya"]
         ) :
             if isinstance(ka, str) :
