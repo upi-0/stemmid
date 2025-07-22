@@ -25,21 +25,23 @@ class Stemmer(object) :
         except FileNotFoundError :
             print("Kamus gagal di muat!")
 
-    def __init__(self, inc:list[str] = [], exc:list[str] = []):
+    def __init__(self,
+        with_lemmatization: bool = True,
+        inc:list[str] = [],
+        exc:list[str] = []
+    ):
+        self.with_lemmatization = with_lemmatization
         self.katas = self._load_dict(inc, exc)
-
-    def is_on_there(self, kata) :
-        return kata in self.katas
-
-    @property
-    def lemmatization_rules(self) :
-        return {
+        self.lemmatization_rules =  {
             "m" : {"p"},
             "n" : {"t"},
             "ny" : {"c", "s"},
-            "ng" : {"k"},
+            "ng" : {""},
             "nge" : {""},
         }
+
+    def is_on_there(self, kata) :
+        return kata in self.katas
 
     @cache
     def lemmatization(self, kata:str) -> str | None :
@@ -87,7 +89,11 @@ class Stemmer(object) :
         lowres = [(kata.startswith(x), x) for x in prefix.split(" ")]
         joko = copy(kata)
         for lo in lowres :
-            lemm = self.lemmatization(joko)
+            lemm = (
+                self.lemmatization(joko)
+                if self.with_lemmatization 
+                else joko
+            )
             jadi = kata[len(lo[1]) :]
             joko = copy(jadi)
             if lo[0] :            
