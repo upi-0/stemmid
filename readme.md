@@ -36,7 +36,7 @@ pip install git+https://github.com/Malykz/stemmid
 ### Menggunakan Kalimat
 ```python
 >>> Stemmer().loads("Kehilangan Permainan") 
-    "hilang mainan"
+    "hilang main"
 ```
 
 ## Test
